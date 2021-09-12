@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group([
+    'middleware' => 'auth:web'
+], function () {
+    Route::get('/excel-data', 'ExcelDataController@index')->name('excel-data.index');
+    Route::post('/excel-data', 'ExcelDataController@store')->name('excel-data.upload');
+});

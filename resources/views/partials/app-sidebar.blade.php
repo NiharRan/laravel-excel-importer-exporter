@@ -39,11 +39,11 @@
                         Home
                     </a>
                 </li>
-                <li class="app-sidebar__heading">Employees</li>
+                <li class="app-sidebar__heading">Excel Data</li>
                 <li>
-                    <a href="employees.html">
+                    <a href="{{ route('excel-data.index') }}">
                         <i class="metismenu-icon pe-7s-users"></i>
-                        Employees
+                        All Data
                     </a>
                 </li>
                 <li>
