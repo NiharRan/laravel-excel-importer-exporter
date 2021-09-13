@@ -13,7 +13,49 @@
             visibility: hidden;
         }
 
+        .spinner-box {
+            position: fixed;
+            height: 100%;
+            z-index: 1000;
+            left: 140px;
+            top: 89px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+        }
+
+        .circle-border {
+            width: 50px;
+            height: 50px;
+            padding: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: rgb(63, 249, 220);
+            background: linear-gradient(0deg, rgba(63, 249, 220, 0.1) 33%, rgba(63, 249, 220, 1) 100%);
+            animation: spin .8s linear 0s infinite;
+        }
+
+        .circle-core {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .hidden {
+            display: none;
+            visibility: hidden;
+        }
+
     </style>
+    <div class="spinner-box hidden">
+        <div class="circle-border">
+            <div class="circle-core"></div>
+        </div>
+    </div>
     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
         <li class="nav-item">
             <label class="nav-link active">
@@ -27,7 +69,7 @@
             </a>
         </li>
     </ul>
-    <div class="row ">
+    <div class="row" id="data-list">
         <div class="col-md-12">
             <div class="main-card mb-3 card ">
                 <div class="card-body table-responsive">
@@ -184,6 +226,7 @@
                         </table>
                         {{ $records->links() }}
                     @endif
+
                 </div>
             </div>
 
@@ -192,7 +235,15 @@
     <script>
         async function uploadData() {
             const target = document.getElementById("file-upload-btn");
+            const dataList = document.getElementById("data-list");
+            const spinnerBox = document.querySelector(".spinner-box");
             if (target) {
+                if (dataList) {
+                    dataList.classList.add("hidden");
+                }
+                if (spinnerBox) {
+                    spinnerBox.classList.remove("hidden");
+                }
                 const file = target.files[0];
                 const formData = new FormData();
                 formData.append('data', file)
