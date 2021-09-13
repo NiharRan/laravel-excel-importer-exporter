@@ -14,16 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group([
     'middleware' => 'auth:web'
 ], function () {
     Route::get('/excel-data', 'ExcelDataController@index')->name('excel-data.index');
-    Route::post('/excel-data', 'ExcelDataController@store')->name('excel-data.upload');
+    Route::post('/excel-data/inport', 'ExcelDataController@inport')->name('excel-data.inport');
+    Route::get('/excel-data/export', 'ExcelDataController@export')->name('excel-data.export');
 });

@@ -16,11 +16,11 @@ class CreateExcelDataTable extends Migration
         Schema::create('excel_data', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('fy')->nullable();
-            $table->string('employee_id');
+            $table->string('financial_year')->nullable();
+            $table->string('employee_id')->nullable();
             $table->string('fyy')->nullable();
             $table->string('ue_no')->nullable();
-            $table->string('employee_name');
+            $table->string('employee_name')->nullable();
             $table->string('business')->nullable();
             $table->string('unit')->nullable();
             $table->string('grade')->nullable();
@@ -44,16 +44,16 @@ class CreateExcelDataTable extends Migration
             $table->string('tei_actual')->nullable();
             $table->string('tqm_target')->nullable();
             $table->string('tqm_actual')->nullable();
-            $table->string('7qc_tools_certified')->nullable();
+            $table->string('qc_tools_certified')->nullable();
             $table->string('green_belt_certified')->nullable();
             $table->string('black_belt_certified')->nullable();
             $table->string('be_assessor_certified')->nullable();
             $table->string('tqm_certified')->nullable();
-            $table->string('5s_assessor_certified')->nullable();
+            $table->string('s_assessor_certified')->nullable();
             $table->string('no_of5s_audits_target')->nullable();
             $table->string('no_of5s_audits_actual')->nullable();
-            $table->string('5s_external_assessment_score_target')->nullable();
-            $table->string('5s_external_assessment_score_actual')->nullable();
+            $table->string('s_external_assessment_score_target')->nullable();
+            $table->string('s_external_assessment_score_actual')->nullable();
             $table->timestamps();
         });
     }

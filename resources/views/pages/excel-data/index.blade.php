@@ -18,368 +18,172 @@
         <li class="nav-item">
             <label class="nav-link active">
                 <input type="file" class="file-input" id="file-upload-btn" onchange="uploadData()">
-                <span>Import CSV file</span>
+                <span>Import</span>
             </label>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('excel-data.export') }}" class="nav-link active">
+                <span>Export</span>
+            </a>
         </li>
     </ul>
     <div class="row ">
         <div class="col-md-12">
             <div class="main-card mb-3 card ">
                 <div class="card-body table-responsive">
-                    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
-                        width="100%">
-                        <thead>
-                            <tr>
-                                <th class="th-sm">S.No</th>
-                                <th class="th-sm">Employee ID</th>
-                                <th class="th-sm">Name</th>
-                                <th class="th-sm">Phone</th>
-                                <th class="th-sm">Email</th>
-                                <th class="th-sm">Password</th>
-                                <th class="th-sm">SBU</th>
-                                <th class="th-sm">Branch/Plant</th>
-                                <th class="th-sm">Division</th>
-                                <th class="th-sm">Grade</th>
-                                <th class="th-sm">Employee Type</th>
-                                <th class="th-sm">Designation</th>
-                                <th class="th-sm">DOB</th>
-                                <th class="th-sm">DOJ</th>
-                                <th class="th-sm">Organisation Unit</th>
-                                <th class="th-sm">Function</th>
-                                <th class="th-sm">Previous Experience</th>
-                                <th class="th-sm">Experience</th>
-                                <th class="th-sm">Gender</th>
-                                <th class="th-sm">IO ID</th>
-                                <th class="th-sm">IO Name</th>
-                                <th class="th-sm">FRO ID</th>
-                                <th class="th-sm">FRO Name</th>
-                                <th class="th-sm">RO ID</th>
-                                <th class="th-sm">RO Name</th>
-                                <th class="th-sm">Blood Group</th>
-                                <th class="th-sm">Religion</th>
-                                <th class="th-sm">Birth Place</th>
-                                <th class="th-sm">State</th>
-                                <th class="th-sm">Father Name</th>
-                                <th class="th-sm">PF Nominee 1</th>
-                                <th class="th-sm">Nominee 1 Relationship</th>
-                                <th class="th-sm">PF Nominee 2</th>
-                                <th class="th-sm">Nominee 2 Relationship</th>
-                                <th class="th-sm">T-Shirt Size</th>
-                                <th class="th-sm">Preferred Food</th>
-                                <th class="th-sm">Passport NO</th>
-                                <th class="th-sm">Passport Expiry Date</th>
-                                <th class="th-sm">Admin</th>
-                                <th class="th-sm">Resign</th>
-                                <th class="th-sm">Edit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>TMICIL4547</td>
-                                <td>Navingouda Mallikarjungouda Venkangoudar</td>
-                                <td>7019717447</td>
-                                <td>Naveen@gmail.com</td>
-                                <td>coromandel</td>
-                                <td>Retail</td>
-                                <td>Raichur</td>
-                                <td>Raichur Zone</td>
-                                <td>NA</td>
-                                <td>NMS</td>
-                                <td>Customer Executive11-11-1990</td>
-                                <td>11-11-1990</td>
-                                <td>09-07-2021</td>
-                                <td>DHARWAD-KALAGHATAGI</td>
-                                <td>Accounts</td>
-                                <td>0</td>
-                                <td>0.0</td>
-                                <td>Male</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NON-VEG</td>
-                                <td>N</td>
-                                <td>2021-07-29</td>
-                                <td><button class="mt-1 btn btn-success">Make Admin</button></td>
-                                <td><button class="mt-1 btn btn-success">Resign</button></td>
-                                <td><button class="mt-1 btn btn-success">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>TMICIL4547</td>
-                                <td>Navingouda Mallikarjungouda Venkangoudar</td>
-                                <td>7019717447</td>
-                                <td>Naveen@gmail.com</td>
-                                <td>coromandel</td>
-                                <td>Retail</td>
-                                <td>Raichur</td>
-                                <td>Raichur Zone</td>
-                                <td>NA</td>
-                                <td>NMS</td>
-                                <td>Customer Executive11-11-1990</td>
-                                <td>11-11-1990</td>
-                                <td>09-07-2021</td>
-                                <td>DHARWAD-KALAGHATAGI</td>
-                                <td>Accounts</td>
-                                <td>0</td>
-                                <td>0.0</td>
-                                <td>Male</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NON-VEG</td>
-                                <td>N</td>
-                                <td>2021-07-29</td>
-                                <td><button class="mt-1 btn btn-success">Make Admin</button></td>
-                                <td><button class="mt-1 btn btn-success">Resign</button></td>
-                                <td><button class="mt-1 btn btn-success">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>TMICIL4547</td>
-                                <td>Navingouda Mallikarjungouda Venkangoudar</td>
-                                <td>7019717447</td>
-                                <td>Naveen@gmail.com</td>
-                                <td>coromandel</td>
-                                <td>Retail</td>
-                                <td>Raichur</td>
-                                <td>Raichur Zone</td>
-                                <td>NA</td>
-                                <td>NMS</td>
-                                <td>Customer Executive11-11-1990</td>
-                                <td>11-11-1990</td>
-                                <td>09-07-2021</td>
-                                <td>DHARWAD-KALAGHATAGI</td>
-                                <td>Accounts</td>
-                                <td>0</td>
-                                <td>0.0</td>
-                                <td>Male</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NON-VEG</td>
-                                <td>N</td>
-                                <td>2021-07-29</td>
-                                <td><button class="mt-1 btn btn-success">Make Admin</button></td>
-                                <td><button class="mt-1 btn btn-success">Resign</button></td>
-                                <td><button class="mt-1 btn btn-success">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>TMICIL4547</td>
-                                <td>Navingouda Mallikarjungouda Venkangoudar</td>
-                                <td>7019717447</td>
-                                <td>Naveen@gmail.com</td>
-                                <td>coromandel</td>
-                                <td>Retail</td>
-                                <td>Raichur</td>
-                                <td>Raichur Zone</td>
-                                <td>NA</td>
-                                <td>NMS</td>
-                                <td>Customer Executive11-11-1990</td>
-                                <td>11-11-1990</td>
-                                <td>09-07-2021</td>
-                                <td>DHARWAD-KALAGHATAGI</td>
-                                <td>Accounts</td>
-                                <td>0</td>
-                                <td>0.0</td>
-                                <td>Male</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NON-VEG</td>
-                                <td>N</td>
-                                <td>2021-07-29</td>
-                                <td><button class="mt-1 btn btn-success">Make Admin</button></td>
-                                <td><button class="mt-1 btn btn-success">Resign</button></td>
-                                <td><button class="mt-1 btn btn-success">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>TMICIL4547</td>
-                                <td>Navingouda Mallikarjungouda Venkangoudar</td>
-                                <td>7019717447</td>
-                                <td>Naveen@gmail.com</td>
-                                <td>coromandel</td>
-                                <td>Retail</td>
-                                <td>Raichur</td>
-                                <td>Raichur Zone</td>
-                                <td>NA</td>
-                                <td>NMS</td>
-                                <td>Customer Executive11-11-1990</td>
-                                <td>11-11-1990</td>
-                                <td>09-07-2021</td>
-                                <td>DHARWAD-KALAGHATAGI</td>
-                                <td>Accounts</td>
-                                <td>0</td>
-                                <td>0.0</td>
-                                <td>Male</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NON-VEG</td>
-                                <td>N</td>
-                                <td>2021-07-29</td>
-                                <td><button class="mt-1 btn btn-success">Make Admin</button></td>
-                                <td><button class="mt-1 btn btn-success">Resign</button></td>
-                                <td><button class="mt-1 btn btn-success">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>TMICIL4547</td>
-                                <td>Navingouda Mallikarjungouda Venkangoudar</td>
-                                <td>7019717447</td>
-                                <td>Naveen@gmail.com</td>
-                                <td>coromandel</td>
-                                <td>Retail</td>
-                                <td>Raichur</td>
-                                <td>Raichur Zone</td>
-                                <td>NA</td>
-                                <td>NMS</td>
-                                <td>Customer Executive11-11-1990</td>
-                                <td>11-11-1990</td>
-                                <td>09-07-2021</td>
-                                <td>DHARWAD-KALAGHATAGI</td>
-                                <td>Accounts</td>
-                                <td>0</td>
-                                <td>0.0</td>
-                                <td>Male</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NN</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>N</td>
-                                <td>NON-VEG</td>
-                                <td>N</td>
-                                <td>2021-07-29</td>
-                                <td><button class="mt-1 btn btn-success">Make Admin</button></td>
-                                <td><button class="mt-1 btn btn-success">Resign</button></td>
-                                <td><button class="mt-1 btn btn-success">Edit</button></td>
-                            </tr>
+                    @if ($records->count() > 0)
+                        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                            width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="th-sm">S.No</th>
+                                    <th class="th-sm">Financial Year</th>
+                                    <th class="th-sm">Employee ID</th>
+                                    <th class="th-sm">FY</th>
+                                    <th class="th-sm">Employee Name</th>
+                                    <th class="th-sm">Business</th>
+                                    <th class="th-sm">Unit</th>
+                                    <th class="th-sm">Grade</th>
+                                    <th class="th-sm">Band</th>
+                                    <th class="th-sm">Staff Type</th>
+                                    <th class="th-sm">Position</th>
+                                    <th class="th-sm">Department</th>
+                                    <th class="th-sm">Kaizen Target</th>
+                                    <th class="th-sm">Kaizen Actual</th>
+                                    <th class="th-sm">Idea Target</th>
+                                    <th class="th-sm">Idea Actual</th>
+                                    <th class="th-sm">SGA Target</th>
+                                    <th class="th-sm">SGA Actual</th>
+                                    <th class="th-sm">LSS Target</th>
+                                    <th class="th-sm">LSS Actual</th>
+                                    <th class="th-sm">OPL Target</th>
+                                    <th class="th-sm">OPL Actual</th>
+                                    <th class="th-sm">Savings Employee In Lakhs Target1</th>
+                                    <th class="th-sm">Savings Employee In Lakhs Target2</th>
+                                    <th class="th-sm">TEI Target</th>
+                                    <th class="th-sm">TEI Actual</th>
+                                    <th class="th-sm">TEI Actual (1-y/0-/N</th>
+                                    <th class="th-sm">TMQ Score Target</th>
+                                    <th class="th-sm">TMQ Score Actual</th>
+                                    <th class="th-sm">7QC Tools Certified (e Module) (Y/N)</th>
+                                    <th class="th-sm">Green Belt Certified (Y/N)</th>
+                                    <th class="th-sm">Black Belt Certified (Y/N)</th>
+                                    <th class="th-sm">BE Assessor Certified (Y/N)</th>
+                                    <th class="th-sm">TQM Certified (Y/N)</th>
+                                    <th class="th-sm">5S Assessor Certified (Y/N)</th>
+                                    <th class="th-sm">No. of 5S Internal Audits Target</th>
+                                    <th class="th-sm">No. of 5S Internal Audits Actual</th>
+                                    <th class="th-sm">5S External Assessment Score Target</th>
+                                    <th class="th-sm">5S External Assessment Score Actual</th>
+                                    <th class="th-sm">Date</th>
+                                    @if (auth()->user()->role_id == 1)
+                                        <th class="th-sm">Creator</th>
+                                    @endif
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th class="th-sm">S.No</th>
-                                <th class="th-sm">Employee ID</th>
-                                <th class="th-sm">Name</th>
-                                <th class="th-sm">Phone</th>
-                                <th class="th-sm">Email</th>
-                                <th class="th-sm">Password</th>
-                                <th class="th-sm">SBU</th>
-                                <th class="th-sm">Branch/Plant</th>
-                                <th class="th-sm">Division</th>
-                                <th class="th-sm">Grade</th>
-                                <th class="th-sm">Employee Type</th>
-                                <th class="th-sm">Designation</th>
-                                <th class="th-sm">DOB</th>
-                                <th class="th-sm">DOJ</th>
-                                <th class="th-sm">Organisation Unit</th>
-                                <th class="th-sm">Function</th>
-                                <th class="th-sm">Previous Experience</th>
-                                <th class="th-sm">Experience</th>
-                                <th class="th-sm">Gender</th>
-                                <th class="th-sm">IO ID</th>
-                                <th class="th-sm">IO Name</th>
-                                <th class="th-sm">FRO ID</th>
-                                <th class="th-sm">FRO Name</th>
-                                <th class="th-sm">RO ID</th>
-                                <th class="th-sm">RO Name</th>
-                                <th class="th-sm">Blood Group</th>
-                                <th class="th-sm">Religion</th>
-                                <th class="th-sm">Birth Place</th>
-                                <th class="th-sm">State</th>
-                                <th class="th-sm">Father Name</th>
-                                <th class="th-sm">PF Nominee 1</th>
-                                <th class="th-sm">Nominee 1 Relationship</th>
-                                <th class="th-sm">PF Nominee 2</th>
-                                <th class="th-sm">Nominee 2 Relationship</th>
-                                <th class="th-sm">T-Shirt Size</th>
-                                <th class="th-sm">Preferred Food</th>
-                                <th class="th-sm">Passport NO</th>
-                                <th class="th-sm">Passport Expiry Date</th>
-                                <th class="th-sm">Admin</th>
-                                <th class="th-sm">Resign</th>
-                                <th class="th-sm">Edit</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                                @foreach ($records as $row)
+                                    <tr>
+                                        <td>{{ $loop->index + 1 }}</td>
+                                        <td>{{ $row->financial_year }}</td>
+                                        <td>{{ $row->employee_id }}</td>
+                                        <td>{{ $row->fyy }}</td>
+                                        <td>{{ $row->ue_no }}</td>
+                                        <td>{{ $row->employee_name }}</td>
+                                        <td>{{ $row->business }}</td>
+                                        <td>{{ $row->unit }}</td>
+                                        <td>{{ $row->grade }}</td>
+                                        <td>{{ $row->band }}</td>
+                                        <td>{{ $row->staff_type }}</td>
+                                        <td>{{ $row->position }}</td>
+                                        <td>{{ $row->department }}</td>
+                                        <td>{{ $row->kaizen_target }}</td>
+                                        <td>{{ $row->kaizen_actual }}</td>
+                                        <td>{{ $row->idea_target }}</td>
+                                        <td>{{ $row->idea_actual }}</td>
+                                        <td>{{ $row->sga_target }}</td>
+                                        <td>{{ $row->sga_actual }}</td>
+                                        <td>{{ $row->lss_target }}</td>
+                                        <td>{{ $row->lss_actual }}</td>
+                                        <td>{{ $row->opl_target }}</td>
+                                        <td>{{ $row->opl_actual }}</td>
+                                        <td>{{ $row->savings_in_lakhs1 }}</td>
+                                        <td>{{ $row->savings_in_lakhs2 }}</td>
+                                        <td>{{ $row->tei_target }}</td>
+                                        <td>{{ $row->tei_actual }}</td>
+                                        <td>{{ $row->tqm_target }}</td>
+                                        <td>{{ $row->tqm_actual }}</td>
+                                        <td>{{ $row->qc_tools_certified }}</td>
+                                        <td>{{ $row->green_belt_certified }}</td>
+                                        <td>{{ $row->black_belt_certified }}</td>
+                                        <td>{{ $row->be_assessor_certified }}</td>
+                                        <td>{{ $row->tqm_certified }}</td>
+                                        <td>{{ $row->s_assessor_certified }}</td>
+                                        <td>{{ $row->no_of5s_audits_target }}</td>
+                                        <td>{{ $row->no_of5s_audits_actual }}</td>
+                                        <td>{{ $row->s_external_assessment_score_target }}</td>
+                                        <td>{{ $row->s_external_assessment_score_actual }}</td>
+                                        <td>{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
+                                        @if (auth()->user()->role_id == 1)
+                                            <td>{{ $row->creator->name }}</td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="th-sm">S.No</th>
+                                    <th class="th-sm">Financial Year</th>
+                                    <th class="th-sm">Employee ID</th>
+                                    <th class="th-sm">FY</th>
+                                    <th class="th-sm">Employee Name</th>
+                                    <th class="th-sm">Business</th>
+                                    <th class="th-sm">Unit</th>
+                                    <th class="th-sm">Grade</th>
+                                    <th class="th-sm">Band</th>
+                                    <th class="th-sm">Staff Type</th>
+                                    <th class="th-sm">Position</th>
+                                    <th class="th-sm">Department</th>
+                                    <th class="th-sm">Kaizen Target</th>
+                                    <th class="th-sm">Kaizen Actual</th>
+                                    <th class="th-sm">Idea Target</th>
+                                    <th class="th-sm">Idea Actual</th>
+                                    <th class="th-sm">SGA Target</th>
+                                    <th class="th-sm">SGA Actual</th>
+                                    <th class="th-sm">LSS Target</th>
+                                    <th class="th-sm">LSS Actual</th>
+                                    <th class="th-sm">OPL Target</th>
+                                    <th class="th-sm">OPL Actual</th>
+                                    <th class="th-sm">Savings Employee In Lakhs Target1</th>
+                                    <th class="th-sm">Savings Employee In Lakhs Target2</th>
+                                    <th class="th-sm">TEI Target</th>
+                                    <th class="th-sm">TEI Actual</th>
+                                    <th class="th-sm">TEI Actual (1-y/0-/N</th>
+                                    <th class="th-sm">TMQ Score Target</th>
+                                    <th class="th-sm">TMQ Score Actual</th>
+                                    <th class="th-sm">7QC Tools Certified (e Module) (Y/N)</th>
+                                    <th class="th-sm">Green Belt Certified (Y/N)</th>
+                                    <th class="th-sm">Black Belt Certified (Y/N)</th>
+                                    <th class="th-sm">BE Assessor Certified (Y/N)</th>
+                                    <th class="th-sm">TQM Certified (Y/N)</th>
+                                    <th class="th-sm">5S Assessor Certified (Y/N)</th>
+                                    <th class="th-sm">No. of 5S Internal Audits Target</th>
+                                    <th class="th-sm">No. of 5S Internal Audits Actual</th>
+                                    <th class="th-sm">5S External Assessment Score Target</th>
+                                    <th class="th-sm">5S External Assessment Score Actual</th>
+                                    <th class="th-sm">Date</th>
+                                    @if (auth()->user()->role_id == 1)
+                                        <th class="th-sm">Creator</th>
+                                    @endif
+                                </tr>
+                            </tfoot>
+                        </table>
+                        {{ $records->links() }}
+                    @endif
                 </div>
             </div>
 
@@ -394,9 +198,9 @@
                 formData.append('data', file)
                 const {
                     data
-                } = await axios.post('{{ route('excel-data.upload') }}', formData);
+                } = await axios.post('{{ route('excel-data.inport') }}', formData);
                 if (data) {
-                    console.log(data)
+                    location.reload();
                 }
             }
         }

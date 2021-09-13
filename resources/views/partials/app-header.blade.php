@@ -52,10 +52,14 @@
                                     </a>
                                 </li>
                                 <li class="btn-group nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
+                                    <a href="javascript:void(0);" onclick="document.getElementById('logout').submit();"
+                                        class="nav-link">
                                         <i class="nav-link-icon fa fa-power-off"></i>
                                         Logout
                                     </a>
+                                    <form action="{{ route('logout') }}" id="logout" method="post">
+                                        {{ csrf_field() }}
+                                    </form>
                                 </li>
                             </ul>
                         </div>
