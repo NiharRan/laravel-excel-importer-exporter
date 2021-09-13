@@ -5,8 +5,8 @@
                 <i class="fa fa-home icon-gradient bg-love-kiss">
                 </i>
             </div>
-            <div>Home
-                <div class="page-title-subheading">Access menu from here
+            <div>{{ $title }}
+                <div class="page-title-subheading">{{ $sub_title }}
                 </div>
             </div>
         </div>

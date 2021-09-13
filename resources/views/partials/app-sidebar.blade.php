@@ -46,6 +46,16 @@
                         All Data
                     </a>
                 </li>
+
+                @if (auth()->user()->role_id == 1)
+                    <li class="app-sidebar__heading">Users</li>
+                    <li>
+                        <a href="{{ route('users.index') }}">
+                            <i class="metismenu-icon pe-7s-users"></i>
+                            All Users
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

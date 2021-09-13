@@ -13,12 +13,14 @@ class ExcelDataController extends Controller
 {
     public function index()
     {
+        $title = 'Data';
+        $sub_title = 'Search data here';
         if (Auth::user()->role_id == 1) {
             $records = ExcelData::with('creator')->orderBy('created_at', 'DESC')->paginate(100);
         } else {
             $records = ExcelData::where('user_id', Auth::user()->role_id)->orderBy('created_at', 'DESC')->paginate(100);
         }
-        return view('pages.excel-data.index', compact('records'));
+        return view('pages.excel-data.index', compact('records', 'title', 'sub_title'));
     }
 
     public function inport(Request $request)

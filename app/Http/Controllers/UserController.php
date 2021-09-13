@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -13,7 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $records = User::orderBy('name', 'ASC')->paginate(20);
+        $title = 'Users';
+        $sub_title = 'Search users here';
+        return view('pages.users.index', compact('title', 'sub_title', 'records'));
     }
 
     /**
@@ -23,7 +28,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Users';
+        $sub_title = 'Create new user here';
+        return view('pages.users.create', compact('title', 'sub_title'));
     }
 
     /**
@@ -34,7 +41,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role_id' => $request->role_id,
+            'password' => Hash::make('12345678')
+        ]);
+
+        if ($user) {
+            return redirect()->route('users.index');
+        }
     }
 
     /**
@@ -56,7 +72,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $title = 'Users';
+        $sub_title = 'Update user here';
+        return view('pages.users.edit', compact('title', 'sub_title', 'user'));
     }
 
     /**
@@ -68,7 +87,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role_id = $request->role_id;
+
+        if ($user->save()) {
+            return redirect()->route('users.index');
+        }
     }
 
     /**
