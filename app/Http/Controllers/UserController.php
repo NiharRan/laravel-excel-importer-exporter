@@ -45,7 +45,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role_id' => $request->role_id,
-            'password' => Hash::make('12345678')
+            'password' => Hash::make('coromandel')
         ]);
 
         if ($user) {
