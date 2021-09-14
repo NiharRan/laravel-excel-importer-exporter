@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/clear-cache', 'ClearCacheController@clear');
+
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group([
