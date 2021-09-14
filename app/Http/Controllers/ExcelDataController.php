@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\ExcelData;
 use App\Exports\ExcelDataExport;
 use App\Imports\ExcelDataImport;
+use App\Services\ExcelDataService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelDataController extends Controller
@@ -15,11 +14,9 @@ class ExcelDataController extends Controller
     {
         $title = 'Data';
         $sub_title = 'Search data here';
-        if (Auth::user()->role_id == 1) {
-            $records = ExcelData::with('creator')->orderBy('created_at', 'DESC')->paginate(100);
-        } else {
-            $records = ExcelData::where('user_id', Auth::user()->role_id)->orderBy('created_at', 'DESC')->paginate(100);
-        }
+
+        $records = (new ExcelDataService)->all()->paginate(100);
+        $records->withQueryString();
         return view('pages.excel-data.index', compact('records', 'title', 'sub_title'));
     }
 

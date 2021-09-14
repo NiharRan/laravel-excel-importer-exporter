@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\ExcelData;
+use App\Services\ExcelDataService;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -14,49 +15,7 @@ class ExcelDataExport implements FromCollection, WithHeadings
      */
     public function collection()
     {
-        if (Auth::user()->role_id == 1) {
-            return ExcelData::select(
-                'financial_year',
-                'employee_id',
-                'fyy',
-                'ue_no',
-                'employee_name',
-                'business',
-                'unit',
-                'grade',
-                'band',
-                'staff_type',
-                'position',
-                'department',
-                'kaizen_target',
-                'kaizen_actual',
-                'idea_target',
-                'idea_actual',
-                'sga_target',
-                'sga_actual',
-                'lss_target',
-                'lss_actual',
-                'opl_target',
-                'opl_actual',
-                'savings_in_lakhs1',
-                'savings_in_lakhs2',
-                'tei_target',
-                'tei_actual',
-                'tqm_target',
-                'tqm_actual',
-                'qc_tools_certified',
-                'green_belt_certified',
-                'black_belt_certified',
-                'be_assessor_certified',
-                'tqm_certified',
-                's_assessor_certified',
-                'no_of5s_audits_target',
-                'no_of5s_audits_actual',
-                's_external_assessment_score_target',
-                's_external_assessment_score_actual'
-            )->get();
-        }
-        return ExcelData::where('user_id', Auth::id())->select(
+        return (new ExcelDataService([
             'financial_year',
             'employee_id',
             'fyy',
@@ -95,7 +54,7 @@ class ExcelDataExport implements FromCollection, WithHeadings
             'no_of5s_audits_actual',
             's_external_assessment_score_target',
             's_external_assessment_score_actual'
-        )->get();
+        ]))->all()->get();
     }
 
     public function headings(): array

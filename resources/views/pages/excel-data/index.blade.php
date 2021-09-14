@@ -68,6 +68,13 @@
                 <span>Export</span>
             </a>
         </li>
+        <li class="nav-item">
+            <form action="" method="get" class="form-inline mt-2">
+                <input name="date" input type="date" id="exampleDate" placeholder="10/7/2010" type="Date"
+                    class="form-control">
+                <button type="submit" class="btn btn-success ml-2">Search</button>
+            </form>
+        </li>
     </ul>
     <div class="row" id="data-list">
         <div class="col-md-12">

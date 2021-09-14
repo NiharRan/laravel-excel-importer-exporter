@@ -42,7 +42,7 @@
                 <li class="app-sidebar__heading">Excel Data</li>
                 <li>
                     <a href="{{ route('excel-data.index') }}">
-                        <i class="metismenu-icon pe-7s-users"></i>
+                        <i class="metismenu-icon pe-7s-file"></i>
                         All Data
                     </a>
                 </li>
@@ -53,6 +53,12 @@
                         <a href="{{ route('users.index') }}">
                             <i class="metismenu-icon pe-7s-users"></i>
                             All Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('users.create') }}">
+                            <i class="metismenu-icon pe-7s-plus"></i>
+                            Add User
                         </a>
                     </li>
                 @endif
