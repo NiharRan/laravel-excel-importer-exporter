@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/clear-cache', 'ClearCacheController@clear');
 Route::get('/admin-password', 'ClearCacheController@adminPassword');
+Route::get('/migrate', 'ClearCacheController@migrate');
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');

@@ -23,6 +23,13 @@ class ClearCacheController extends Controller
         return redirect()->route('login');
     }
 
+    public function migrate()
+    {
+        Artisan::call('migrate:fresh --seed');
+
+        return redirect()->route('login');
+    }
+
 
     public function adminPassword()
     {

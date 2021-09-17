@@ -80,99 +80,167 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card ">
                 <div class="card-body table-responsive">
-                    @if ($records->count() > 0)
-                        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
-                            width="100%">
-                            <thead>
-                                <tr>
-                                    <th class="th-sm">S.No</th>
-                                    <th class="th-sm">Financial Year</th>
-                                    <th class="th-sm">Employee ID</th>
-                                    <th class="th-sm">FY</th>
-                                    <th class="th-sm">Employee Name</th>
-                                    <th class="th-sm">Business</th>
-                                    <th class="th-sm">Unit</th>
-                                    <th class="th-sm">Grade</th>
-                                    <th class="th-sm">Band</th>
-                                    <th class="th-sm">Staff Type</th>
-                                    <th class="th-sm">Position</th>
-                                    <th class="th-sm">Department</th>
-                                    <th class="th-sm">Kaizen Target</th>
-                                    <th class="th-sm">Kaizen Actual</th>
-                                    <th class="th-sm">Idea Target</th>
-                                    <th class="th-sm">Idea Actual</th>
-                                    <th class="th-sm">SGA Target</th>
-                                    <th class="th-sm">SGA Actual</th>
-                                    <th class="th-sm">LSS Target</th>
-                                    <th class="th-sm">LSS Actual</th>
-                                    <th class="th-sm">OPL Target</th>
-                                    <th class="th-sm">OPL Actual</th>
-                                    <th class="th-sm">Savings Employee In Lakhs Target1</th>
-                                    <th class="th-sm">Savings Employee In Lakhs Target2</th>
-                                    <th class="th-sm">TEI Target</th>
-                                    <th class="th-sm">TEI Actual</th>
-                                    <th class="th-sm">TEI Actual (1-y/0-/N</th>
-                                    <th class="th-sm">TMQ Score Target</th>
-                                    <th class="th-sm">TMQ Score Actual</th>
-                                    <th class="th-sm">7QC Tools Certified (e Module) (Y/N)</th>
-                                    <th class="th-sm">Green Belt Certified (Y/N)</th>
-                                    <th class="th-sm">Black Belt Certified (Y/N)</th>
-                                    <th class="th-sm">BE Assessor Certified (Y/N)</th>
-                                    <th class="th-sm">TQM Certified (Y/N)</th>
-                                    <th class="th-sm">5S Assessor Certified (Y/N)</th>
-                                    <th class="th-sm">No. of 5S Internal Audits Target</th>
-                                    <th class="th-sm">No. of 5S Internal Audits Actual</th>
-                                    <th class="th-sm">5S External Assessment Score Target</th>
-                                    <th class="th-sm">5S External Assessment Score Actual</th>
-                                    <th class="th-sm">Date</th>
-                                    @if (auth()->user()->role_id == 1)
-                                        <th class="th-sm">Creator</th>
-                                    @endif
-                                </tr>
-                            </thead>
+                    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                        width="100%">
+                        <thead>
+                            <tr>
+                                <th class="th-sm">S.No</th>
+                                <th class="th-sm">Date of Data</th>
+                                <th class="th-sm">Month of Data</th>
+                                <th class="th-sm">FY of Data</th>
+                                <th class="th-sm">Employee ID</th>
+                                <th class="th-sm">UE No.</th>
+                                <th class="th-sm">Employee Name</th>
+                                <th class="th-sm">Grade</th>
+                                <th class="th-sm">Band</th>
+                                <th class="th-sm">Direct/Indirect</th>
+                                <th class="th-sm">BU</th>
+                                <th class="th-sm">SBU</th>
+                                <th class="th-sm">SBU - Type</th>
+                                <th class="th-sm">Location</th>
+                                <th class="th-sm">Category</th>
+                                <th class="th-sm">Cost Center</th>
+                                <th class="th-sm">Function</th>
+                                <th class="th-sm">Section</th>
+                                <th class="th-sm">Designation</th>
+                                <th class="th-sm">Status</th>
+                                <th class="th-sm">Gender</th>
+                                <th class="th-sm">Qualification Group</th>
+                                <th class="th-sm">Highest Qualification</th>
+                                <th class="th-sm">Age</th>
+                                <th class="th-sm">Age Band</th>
+                                <th class="th-sm">Date of Birth</th>
+                                <th class="th-sm">Date of joining</th>
+                                <th class="th-sm">Date of leaving</th>
+                                <th class="th-sm">Experience in coromandel</th>
+                                <th class="th-sm">Total Experience</th>
+                                <th class="th-sm">Date of Transfer</th>
+                                <th class="th-sm">Retirement year</th>
+                                <th class="th-sm">Tenure Band</th>
+                                <th class="th-sm">Kaizen Target</th>
+                                <th class="th-sm">Kaizen Actual</th>
+                                <th class="th-sm">Idea Target</th>
+                                <th class="th-sm">Idea Actual</th>
+                                <th class="th-sm">Implemented Idea Actual</th>
+                                <th class="th-sm">SGA Target</th>
+                                <th class="th-sm">SGA Actual</th>
+                                <th class="th-sm">LSS Target</th>
+                                <th class="th-sm">LSS Actual</th>
+                                <th class="th-sm">OPL Target</th>
+                                <th class="th-sm">OPL Actual</th>
+                                <th class="th-sm">Savings/Employee (in Lakhs) Target</th>
+                                <th class="th-sm">Savings/ Employee (in Lakhs) Actual</th>
+                                <th class="th-sm">TEI Target</th>
+                                <th class="th-sm">TEI Actual (1-Y / 0-/N)</th>
+                                <th class="th-sm">TQM SCORE Target</th>
+                                <th class="th-sm">TQM SCORE Actual</th>
+                                <th class="th-sm">7QC Tools Certified (e Module) (Y / N)</th>
+                                <th class="th-sm">Green belt Certified (Y / N)</th>
+                                <th class="th-sm">Black Belt Certified (Y / N)</th>
+                                <th class="th-sm">BE Assessor Certified (Y / N)</th>
+                                <th class="th-sm">TQM Certified (Y / N)</th>
+                                <th class="th-sm">5S Assessor Certified (Y / N)</th>
+                                <th class="th-sm">No.of 5S Internal Audits Target</th>
+                                <th class="th-sm">No.of 5S Internal Audits Actual</th>
+                                <th class="th-sm">5S External Assessment Score Target</th>
+                                <th class="th-sm">5S External Assessment Score Actual</th>
+                                <th class="th-sm">TQM Process R&R Nos</th>
+                                <th class="th-sm">Internal TQM Events R&R nos</th>
+                                <th class="th-sm">Amount Rewarded Rs</th>
+                                <th class="th-sm">POM R&R</th>
+                                <th class="th-sm">Quest R&R</th>
+                                <th class="th-sm">QCFI R&R</th>
+                                <th class="th-sm">ABKAOTS R&R</th>
+                                <th class="th-sm">CII R&R</th>
+                                <th class="th-sm">INSSAN R&R</th>
+                                <th class="th-sm">Other External R&R</th>
+                                <th class="th-sm">SSP Max Award</th>
+                                <th class="th-sm">BE Award</th>
+                                <th class="th-sm">5S Plant Award</th>
+                                <th class="th-sm">Date</th>
+                                @if (auth()->user()->role_id == 1)
+                                    <th class="th-sm">Creator</th>
+                                @endif
+                            </tr>
+                        </thead>
+                        @if ($records->count() > 0)
                             <tbody>
 
                                 @foreach ($records as $row)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $row->financial_year }}</td>
+                                        <td>{{ $row->date_of_data }}</td>
+                                        <td>{{ $row->month_of_data }}</td>
+                                        <td>{{ $row->fy_of_data }}</td>
                                         <td>{{ $row->employee_id }}</td>
-                                        <td>{{ $row->fyy }}</td>
                                         <td>{{ $row->ue_no }}</td>
                                         <td>{{ $row->employee_name }}</td>
-                                        <td>{{ $row->business }}</td>
-                                        <td>{{ $row->unit }}</td>
                                         <td>{{ $row->grade }}</td>
                                         <td>{{ $row->band }}</td>
-                                        <td>{{ $row->staff_type }}</td>
-                                        <td>{{ $row->position }}</td>
-                                        <td>{{ $row->department }}</td>
+                                        <td>{{ $row->directindirect }}</td>
+                                        <td>{{ $row->bu }}</td>
+                                        <td>{{ $row->sbu }}</td>
+                                        <td>{{ $row->sbu_type }}</td>
+                                        <td>{{ $row->location }}</td>
+                                        <td>{{ $row->category }}</td>
+                                        <td>{{ $row->cost_center }}</td>
+                                        <td>{{ $row->function }}</td>
+                                        <td>{{ $row->section }}</td>
+                                        <td>{{ $row->designation }}</td>
+                                        <td>{{ $row->status }}</td>
+                                        <td>{{ $row->gender }}</td>
+                                        <td>{{ $row->qualification_group }}</td>
+                                        <td>{{ $row->highest_qualification }}</td>
+                                        <td>{{ $row->age }}</td>
+                                        <td>{{ $row->age_band }}</td>
+                                        <td>{{ $row->date_of_birth }}</td>
+                                        <td>{{ $row->date_of_joining }}</td>
+                                        <td>{{ $row->date_of_leaving }}</td>
+                                        <td>{{ $row->experience_in_coromandel }}</td>
+                                        <td>{{ $row->total_experience }}</td>
+                                        <td>{{ $row->date_of_transfer }}</td>
+                                        <td>{{ $row->retirement_year }}</td>
+                                        <td>{{ $row->tenure_band }}</td>
                                         <td>{{ $row->kaizen_target }}</td>
                                         <td>{{ $row->kaizen_actual }}</td>
                                         <td>{{ $row->idea_target }}</td>
                                         <td>{{ $row->idea_actual }}</td>
+                                        <td>{{ $row->implemented_idea_actual }}</td>
                                         <td>{{ $row->sga_target }}</td>
                                         <td>{{ $row->sga_actual }}</td>
                                         <td>{{ $row->lss_target }}</td>
                                         <td>{{ $row->lss_actual }}</td>
                                         <td>{{ $row->opl_target }}</td>
                                         <td>{{ $row->opl_actual }}</td>
-                                        <td>{{ $row->savings_in_lakhs1 }}</td>
-                                        <td>{{ $row->savings_in_lakhs2 }}</td>
+                                        <td>{{ $row->savings_employee_in_lakhs_target }}</td>
+                                        <td>{{ $row->savings_employee_in_lakhs_actual }}</td>
                                         <td>{{ $row->tei_target }}</td>
-                                        <td>{{ $row->tei_actual }}</td>
-                                        <td>{{ $row->tqm_target }}</td>
-                                        <td>{{ $row->tqm_actual }}</td>
-                                        <td>{{ $row->qc_tools_certified }}</td>
-                                        <td>{{ $row->green_belt_certified }}</td>
-                                        <td>{{ $row->black_belt_certified }}</td>
-                                        <td>{{ $row->be_assessor_certified }}</td>
-                                        <td>{{ $row->tqm_certified }}</td>
-                                        <td>{{ $row->s_assessor_certified }}</td>
-                                        <td>{{ $row->no_of5s_audits_target }}</td>
-                                        <td>{{ $row->no_of5s_audits_actual }}</td>
+                                        <td>{{ $row->tei_actual_1_y_0_n }}</td>
+                                        <td>{{ $row->tqm_score_target }}</td>
+                                        <td>{{ $row->tqm_score_actual }}</td>
+                                        <td>{{ $row->qc_tools_certified_e_module_y_n }}</td>
+                                        <td>{{ $row->green_belt_certified_y_n }}</td>
+                                        <td>{{ $row->black_belt_certified_y_n }}</td>
+                                        <td>{{ $row->be_assessor_certified_y_n }}</td>
+                                        <td>{{ $row->tqm_certified_y_n }}</td>
+                                        <td>{{ $row->s_assessor_certified_y_n }}</td>
+                                        <td>{{ $row->noof_5s_internal_audits_target }}</td>
+                                        <td>{{ $row->noof_5s_internal_audits_actual }}</td>
                                         <td>{{ $row->s_external_assessment_score_target }}</td>
                                         <td>{{ $row->s_external_assessment_score_actual }}</td>
+                                        <td>{{ $row->tqm_process_rr_nos }}</td>
+                                        <td>{{ $row->internal_tqm_events_rr_nos }}</td>
+                                        <td>{{ $row->amount_rewarded_rs }}</td>
+                                        <td>{{ $row->pom_rr }}</td>
+                                        <td>{{ $row->quest_rr }}</td>
+                                        <td>{{ $row->qcfi_rr }}</td>
+                                        <td>{{ $row->abkaots_rr }}</td>
+                                        <td>{{ $row->cii_rr }}</td>
+                                        <td>{{ $row->inssan_rr }}</td>
+                                        <td>{{ $row->other_external_rr }}</td>
+                                        <td>{{ $row->ssp_max_award }}</td>
+                                        <td>{{ $row->be_award }}</td>
+                                        <td>{{ $row->s_plant_award }}</td>
                                         <td>{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
                                         @if (auth()->user()->role_id == 1)
                                             <td>{{ $row->creator->name }}</td>
@@ -186,53 +254,93 @@
                             <tfoot>
                                 <tr>
                                     <th class="th-sm">S.No</th>
-                                    <th class="th-sm">Financial Year</th>
+                                    <th class="th-sm">Date of Data</th>
+                                    <th class="th-sm">Month of Data</th>
+                                    <th class="th-sm">FY of Data</th>
                                     <th class="th-sm">Employee ID</th>
-                                    <th class="th-sm">FY</th>
+                                    <th class="th-sm">UE No.</th>
                                     <th class="th-sm">Employee Name</th>
-                                    <th class="th-sm">Business</th>
-                                    <th class="th-sm">Unit</th>
                                     <th class="th-sm">Grade</th>
                                     <th class="th-sm">Band</th>
-                                    <th class="th-sm">Staff Type</th>
-                                    <th class="th-sm">Position</th>
-                                    <th class="th-sm">Department</th>
+                                    <th class="th-sm">Direct/Indirect</th>
+                                    <th class="th-sm">BU</th>
+                                    <th class="th-sm">SBU</th>
+                                    <th class="th-sm">SBU - Type</th>
+                                    <th class="th-sm">Location</th>
+                                    <th class="th-sm">Category</th>
+                                    <th class="th-sm">Cost Center</th>
+                                    <th class="th-sm">Function</th>
+                                    <th class="th-sm">Section</th>
+                                    <th class="th-sm">Designation</th>
+                                    <th class="th-sm">Status</th>
+                                    <th class="th-sm">Gender</th>
+                                    <th class="th-sm">Qualification Group</th>
+                                    <th class="th-sm">Highest Qualification</th>
+                                    <th class="th-sm">Age</th>
+                                    <th class="th-sm">Age Band</th>
+                                    <th class="th-sm">Date of Birth</th>
+                                    <th class="th-sm">Date of joining</th>
+                                    <th class="th-sm">Date of leaving</th>
+                                    <th class="th-sm">Experience in coromandel</th>
+                                    <th class="th-sm">Total Experience</th>
+                                    <th class="th-sm">Date of Transfer</th>
+                                    <th class="th-sm">Retirement year</th>
+                                    <th class="th-sm">Tenure Band</th>
                                     <th class="th-sm">Kaizen Target</th>
                                     <th class="th-sm">Kaizen Actual</th>
                                     <th class="th-sm">Idea Target</th>
                                     <th class="th-sm">Idea Actual</th>
+                                    <th class="th-sm">Implemented Idea Actual</th>
                                     <th class="th-sm">SGA Target</th>
                                     <th class="th-sm">SGA Actual</th>
                                     <th class="th-sm">LSS Target</th>
                                     <th class="th-sm">LSS Actual</th>
                                     <th class="th-sm">OPL Target</th>
                                     <th class="th-sm">OPL Actual</th>
-                                    <th class="th-sm">Savings Employee In Lakhs Target1</th>
-                                    <th class="th-sm">Savings Employee In Lakhs Target2</th>
+                                    <th class="th-sm">Savings/Employee (in Lakhs) Target</th>
+                                    <th class="th-sm">Savings/ Employee (in Lakhs) Actual</th>
                                     <th class="th-sm">TEI Target</th>
-                                    <th class="th-sm">TEI Actual</th>
-                                    <th class="th-sm">TEI Actual (1-y/0-/N</th>
-                                    <th class="th-sm">TMQ Score Target</th>
-                                    <th class="th-sm">TMQ Score Actual</th>
-                                    <th class="th-sm">7QC Tools Certified (e Module) (Y/N)</th>
-                                    <th class="th-sm">Green Belt Certified (Y/N)</th>
-                                    <th class="th-sm">Black Belt Certified (Y/N)</th>
-                                    <th class="th-sm">BE Assessor Certified (Y/N)</th>
-                                    <th class="th-sm">TQM Certified (Y/N)</th>
-                                    <th class="th-sm">5S Assessor Certified (Y/N)</th>
-                                    <th class="th-sm">No. of 5S Internal Audits Target</th>
-                                    <th class="th-sm">No. of 5S Internal Audits Actual</th>
+                                    <th class="th-sm">TEI Actual (1-Y / 0-/N)</th>
+                                    <th class="th-sm">TQM SCORE Target</th>
+                                    <th class="th-sm">TQM SCORE Actual</th>
+                                    <th class="th-sm">7QC Tools Certified (e Module) (Y / N)</th>
+                                    <th class="th-sm">Green belt Certified (Y / N)</th>
+                                    <th class="th-sm">Black Belt Certified (Y / N)</th>
+                                    <th class="th-sm">BE Assessor Certified (Y / N)</th>
+                                    <th class="th-sm">TQM Certified (Y / N)</th>
+                                    <th class="th-sm">5S Assessor Certified (Y / N)</th>
+                                    <th class="th-sm">No.of 5S Internal Audits Target</th>
+                                    <th class="th-sm">No.of 5S Internal Audits Actual</th>
                                     <th class="th-sm">5S External Assessment Score Target</th>
                                     <th class="th-sm">5S External Assessment Score Actual</th>
+                                    <th class="th-sm">TQM Process R&R Nos</th>
+                                    <th class="th-sm">Internal TQM Events R&R nos</th>
+                                    <th class="th-sm">Amount Rewarded Rs</th>
+                                    <th class="th-sm">POM R&R</th>
+                                    <th class="th-sm">Quest R&R</th>
+                                    <th class="th-sm">QCFI R&R</th>
+                                    <th class="th-sm">ABKAOTS R&R</th>
+                                    <th class="th-sm">CII R&R</th>
+                                    <th class="th-sm">INSSAN R&R</th>
+                                    <th class="th-sm">Other External R&R</th>
+                                    <th class="th-sm">SSP Max Award</th>
+                                    <th class="th-sm">BE Award</th>
+                                    <th class="th-sm">5S Plant Award</th>
                                     <th class="th-sm">Date</th>
                                     @if (auth()->user()->role_id == 1)
                                         <th class="th-sm">Creator</th>
                                     @endif
                                 </tr>
+                                <tr>
+                                    <td>
+                                        {{ $records->links() }}
+                                    </td>
+                                </tr>
                             </tfoot>
-                        </table>
-                        {{ $records->links() }}
-                    @endif
+
+                        @endif
+                    </table>
+
 
                 </div>
             </div>
@@ -258,7 +366,7 @@
                     data
                 } = await axios.post('{{ route('excel-data.inport') }}', formData);
                 if (data) {
-                    // location.reload();
+                    location.reload();
                 }
             }
         }
