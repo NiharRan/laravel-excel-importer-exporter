@@ -366,7 +366,7 @@
                     data
                 } = await axios.post('{{ route('excel-data.inport') }}', formData);
                 if (data) {
-                    location.reload();
+                    // location.reload();
                 }
             }
         }

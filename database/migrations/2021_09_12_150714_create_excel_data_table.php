@@ -17,8 +17,8 @@ class CreateExcelDataTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string("date_of_data", 200)->nullable();
-            $table->date("month_of_data", 200)->nullable();
-            $table->date("fy_of_data", 200)->nullable();
+            $table->string("month_of_data", 200)->nullable();
+            $table->string("fy_of_data", 200)->nullable();
             $table->string('employee_id', 200)->nullable();
             $table->string('ue_no', 200)->nullable();
             $table->string('employee_name', 200)->nullable();
