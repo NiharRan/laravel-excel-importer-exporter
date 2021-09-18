@@ -26,7 +26,7 @@ class ExcelDataController extends Controller
             return response()->json(null);
         }
 
-        $data = (new ExcelDataImport)->import($request->file('data')->getRealPath(), null, \Maatwebsite\Excel\Excel::XLSX);
+        $data = (new ExcelDataImport)->import($request->file('data')->getRealPath(), null, \Maatwebsite\Excel\Excel::CSV);
         return response()->json($data);
     }
 

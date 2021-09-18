@@ -4,17 +4,13 @@ namespace App\Imports;
 
 use App\ExcelData;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
-use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\WithValidation;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
-use Throwable;
 
 class ExcelDataImport implements ToModel, WithChunkReading, WithHeadingRow, WithBatchInserts, WithColumnFormatting
 {
@@ -26,7 +22,7 @@ class ExcelDataImport implements ToModel, WithChunkReading, WithHeadingRow, With
      */
     public function model(array $row)
     {
-        dd($row);
+        // dd($row);
         if (isset($row['date_of_data'])) {
             return new ExcelData([
                 'user_id' => Auth::id(),
@@ -88,6 +84,7 @@ class ExcelDataImport implements ToModel, WithChunkReading, WithHeadingRow, With
                 'noof_5s_internal_audits_actual' => $row['noof_5s_internal_audits_actual'],
                 's_external_assessment_score_target' => $row['5s_external_assessment_score_target'],
                 's_external_assessment_score_actual' => $row['5s_external_assessment_score_actual'],
+                'tqm_process_rr_nos' => $row['tqm_process_rr_nos'],
                 'internal_tqm_events_rr_nos' => $row['internal_tqm_events_rr_nos'],
                 'amount_rewarded_rs' => $row['amount_rewarded_rs'],
                 'pom_rr' => $row['pom_rr'],

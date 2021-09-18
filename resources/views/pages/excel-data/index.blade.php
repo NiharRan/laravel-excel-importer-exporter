@@ -2,6 +2,11 @@
 
 @section('content')
     <style>
+        th,
+        td {
+            white-space: nowrap;
+        }
+
         .file-input {
             width: 100%;
             position: absolute;
@@ -157,10 +162,6 @@
                                 <th class="th-sm">SSP Max Award</th>
                                 <th class="th-sm">BE Award</th>
                                 <th class="th-sm">5S Plant Award</th>
-                                <th class="th-sm">Date</th>
-                                @if (auth()->user()->role_id == 1)
-                                    <th class="th-sm">Creator</th>
-                                @endif
                             </tr>
                         </thead>
                         @if ($records->count() > 0)
@@ -241,10 +242,6 @@
                                         <td>{{ $row->ssp_max_award }}</td>
                                         <td>{{ $row->be_award }}</td>
                                         <td>{{ $row->s_plant_award }}</td>
-                                        <td>{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
-                                        @if (auth()->user()->role_id == 1)
-                                            <td>{{ $row->creator->name }}</td>
-                                        @endif
                                     </tr>
                                 @endforeach
 
@@ -326,10 +323,6 @@
                                     <th class="th-sm">SSP Max Award</th>
                                     <th class="th-sm">BE Award</th>
                                     <th class="th-sm">5S Plant Award</th>
-                                    <th class="th-sm">Date</th>
-                                    @if (auth()->user()->role_id == 1)
-                                        <th class="th-sm">Creator</th>
-                                    @endif
                                 </tr>
                                 <tr>
                                     <td>
@@ -366,7 +359,7 @@
                     data
                 } = await axios.post('{{ route('excel-data.inport') }}', formData);
                 if (data) {
-                    // location.reload();
+                    location.reload();
                 }
             }
         }
