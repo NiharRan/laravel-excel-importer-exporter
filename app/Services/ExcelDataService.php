@@ -28,7 +28,7 @@ class ExcelDataService
                     ]
                 )->orderBy('created_at', 'DESC');
         } else {
-            $records = ExcelData::where('user_id', Auth::user()->role_id)
+            $records = ExcelData::where('user_id', Auth::user()->id)
                 ->whereBetween(
                     'created_at',
                     [

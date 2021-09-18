@@ -36,10 +36,10 @@
                             <div class="col-md-4">
                                 <div class="position-relative form-group">
                                     <label for="email"
-                                        class="">  <strong>Email :</strong></label>
+                                        class="">  <strong>Employee ID :</strong></label>
                                         <input 
                                         name="email"  value="{{ $user->email }}"
-                                        id="email" placeholder="User Email"
+                                        id="email" placeholder="User Employee ID"
                                         type="email" class="form-control">
                                 </div>
                             </div>
