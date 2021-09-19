@@ -91,6 +91,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role_id = $request->role_id;
+        $user->status = isset($request->status) ? 1 : 0;
 
         if ($user->save()) {
             return redirect()->route('users.index');
