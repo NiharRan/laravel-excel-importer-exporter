@@ -64,7 +64,7 @@
     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
         <li class="nav-item">
             <label class="nav-link active">
-                <input type="file" class="file-input" id="file-upload-btn" onchange="uploadData()">
+                <input type="file" accept=".csv" class="file-input" id="file-upload-btn" onchange="uploadData()">
                 <span>Import</span>
             </label>
         </li>
@@ -162,6 +162,7 @@
                                 <th class="th-sm">SSP Max Award</th>
                                 <th class="th-sm">BE Award</th>
                                 <th class="th-sm">5S Plant Award</th>
+                                <th class="th-sm">Employee Name</th>
                             </tr>
                         </thead>
                         @if ($records->count() > 0)
@@ -242,6 +243,7 @@
                                         <td>{{ $row->ssp_max_award }}</td>
                                         <td>{{ $row->be_award }}</td>
                                         <td>{{ $row->s_plant_award }}</td>
+                                        <td>{{ $row->creator->name }}</td>
                                     </tr>
                                 @endforeach
 
@@ -323,6 +325,7 @@
                                     <th class="th-sm">SSP Max Award</th>
                                     <th class="th-sm">BE Award</th>
                                     <th class="th-sm">5S Plant Award</th>
+                                    <th class="th-sm">Employee Name</th>
                                 </tr>
                                 <tr>
                                     <td>

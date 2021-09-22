@@ -40,7 +40,7 @@
                                         <input 
                                         name="email"  value="{{ $user->email }}"
                                         id="email" placeholder="User Employee ID"
-                                        type="email" class="form-control">
+                                        type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">

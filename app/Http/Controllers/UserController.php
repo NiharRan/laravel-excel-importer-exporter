@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -106,5 +108,39 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function changePassword()
+    {
+        $title = 'Profile';
+        $sub_title = 'Change password';
+        return view('pages.users.change-password', compact('title', 'sub_title'));
+    }
+
+
+    public function updatePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = User::find(Auth::id());
+        if ($user) {
+            $user->password = Hash::make($request->password);
+            $user->save();
+        }
+
+        return redirect()
+            ->back()
+            ->with('success', 'Password changed successfully!');
     }
 }

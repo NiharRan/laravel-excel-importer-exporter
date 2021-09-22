@@ -18,24 +18,16 @@ class ExcelDataService
         if (request()->has('date')) {
             $search_date = date('Y-m-d', strtotime(request()->date));
         }
-        if (Auth::user()->role_id == 1) {
-            $records = ExcelData::with('creator')
-                ->whereBetween(
-                    'created_at',
-                    [
-                        $search_date . ' 00:00:00',
-                        $search_date . ' 23:59:59'
-                    ]
-                )->orderBy('created_at', 'DESC');
-        } else {
-            $records = ExcelData::where('user_id', Auth::user()->id)
-                ->whereBetween(
-                    'created_at',
-                    [
-                        $search_date . ' 00:00:00',
-                        $search_date . ' 23:59:59'
-                    ]
-                )->orderBy('created_at', 'DESC');
+        $records = ExcelData::join('users', 'users.id', '=', 'excel_data.user_id')
+            ->whereBetween(
+                'excel_data.created_at',
+                [
+                    $search_date . ' 00:00:00',
+                    $search_date . ' 23:59:59'
+                ]
+            )->orderBy('excel_data.created_at', 'DESC');
+        if (Auth::user()->role_id != 1) {
+            $records = $records->where('user_id', Auth::user()->id);
         }
 
         if (count($this->selectable_fields) > 0) {

@@ -45,12 +45,12 @@
                     <div class="widget-content-wrapper">
                         <div class="widget-content-left">
                             <ul class="header-menu nav">
-                                {{-- <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
+                                <li class="nav-item">
+                                    <a href="/change-password" class="nav-link">
                                         <i class="nav-link-icon fa fa-edit"></i>
                                         Change Password
                                     </a>
-                                </li> --}}
+                                </li>
                                 <li class="btn-group nav-item">
                                     <a href="javascript:void(0);" onclick="document.getElementById('logout').submit();"
                                         class="nav-link">

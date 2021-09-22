@@ -34,7 +34,7 @@ class ExcelDataExport implements FromCollection, WithHeadings
             'function',
             'section',
             'designation',
-            'status',
+            'excel_data.status',
             'gender',
             'qualification_group',
             'highest_qualification',
@@ -88,6 +88,7 @@ class ExcelDataExport implements FromCollection, WithHeadings
             'ssp_max_award',
             'be_award',
             's_plant_award',
+            'users.name'
         ]))->all()->get();
     }
 
@@ -166,6 +167,7 @@ class ExcelDataExport implements FromCollection, WithHeadings
             "SSP Max Award",
             "BE Award",
             "5S Plant Award",
+            'Employee Name'
         ];
     }
 }
