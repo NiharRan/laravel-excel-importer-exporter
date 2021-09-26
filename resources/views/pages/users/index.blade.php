@@ -25,6 +25,7 @@
                                     <th class="th-sm">Name</th>
                                     <th class="th-sm">E-mail</th>
                                     <th class="th-sm">Role</th>
+                                    <th class="th-sm">Status</th>
                                     <th class="th-sm">Edit</th>
                                 </tr>
                             </thead>
@@ -36,6 +37,11 @@
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->email }}</td>
                                         <td>{{ $row->role_id == 1 ? 'Admin' : 'Employee' }}</td>
+                                        <td class="text-center">
+                                            <span class="text-white bg-{{ $row->status == 1 ? 'success' : 'danger' }}">
+                                                {{ $row->status == 1 ? 'Active' : 'Inactive' }}
+                                            </span>
+                                        </td>
 
                                         <td><a href="{{ route('users.edit', $row->id) }}"
                                                 class="mt-1 btn btn-success">Edit</a></td>

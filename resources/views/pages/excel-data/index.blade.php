@@ -163,6 +163,8 @@
                                 <th class="th-sm">BE Award</th>
                                 <th class="th-sm">5S Plant Award</th>
                                 <th class="th-sm">Employee Name</th>
+                                <th class="th-sm">Date</th>
+                                <th class="th-sm">Time</th>
                             </tr>
                         </thead>
                         @if ($records->count() > 0)
@@ -244,6 +246,8 @@
                                         <td>{{ $row->be_award }}</td>
                                         <td>{{ $row->s_plant_award }}</td>
                                         <td>{{ $row->creator->name }}</td>
+                                        <td>{{ date('d M, Y', strtotime($row->created_at)) }}</td>
+                                        <td>{{ date('H:i A', strtotime($row->created_at)) }}</td>
                                     </tr>
                                 @endforeach
 
@@ -326,6 +330,8 @@
                                     <th class="th-sm">BE Award</th>
                                     <th class="th-sm">5S Plant Award</th>
                                     <th class="th-sm">Employee Name</th>
+                                    <th class="th-sm">Date</th>
+                                    <th class="th-sm">Time</th>
                                 </tr>
                                 <tr>
                                     <td>

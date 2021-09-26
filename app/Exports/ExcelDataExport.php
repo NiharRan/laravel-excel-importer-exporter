@@ -88,7 +88,9 @@ class ExcelDataExport implements FromCollection, WithHeadings
             'ssp_max_award',
             'be_award',
             's_plant_award',
-            'users.name'
+            'users.name',
+            'excel_data.created_at',
+            'excel_data.created_at'
         ]))->all()->get();
     }
 
@@ -167,7 +169,9 @@ class ExcelDataExport implements FromCollection, WithHeadings
             "SSP Max Award",
             "BE Award",
             "5S Plant Award",
-            'Employee Name'
+            'Employee Name',
+            'Date',
+            'Time',
         ];
     }
 }
